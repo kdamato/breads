@@ -10,4 +10,4 @@ breads.get('/:arrayIndex', function(req, res){
     res.send(Bread[req.params.arrayIndex])
 })
 
-module.exports=breads
+module.exports = breads
