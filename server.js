@@ -1,11 +1,12 @@
 const express = require('express')
+// DEPENDENCIES
+const methodOverride = require('method-override')
 
 require('dotenv').config()
 const PORT = process.env.PORT
 const app = express()
 
-// DEPENDENCIES
-const methodOverride = require('method-override')
+
 
 app.set('views', __dirname + '/views')
 app.set('view engine', 'jsx')
