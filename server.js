@@ -1,6 +1,8 @@
 const express = require('express')
 // DEPENDENCIES
 const methodOverride = require('method-override')
+const mongoose = require('mongoose')
+
 
 require('dotenv').config()
 const PORT = process.env.PORT
@@ -31,9 +33,15 @@ app.use('/breads', breadsController)
 
 app.use(express.static('public'))
 
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
+    () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
+  )
+
 app.get("*", function(req,res){
     res.send("404")
 })
+
+
 
 
 
