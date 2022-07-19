@@ -1,18 +1,7 @@
 const React = require('react')
 const Default = require('./layouts/Default')
 
-// function Show ({bread}) {
-//   console.log(bread.name)
-//     return (
-//       <Default>
-//         <h2>Show Page</h2>
-//       </Default>
-//     )
-// }
-
 function Show ({bread, index}) {
-    // Confirm we are getting our bread data in the terminal.
-    // console.log(bread.name)
    return (
           <Default>
     <h3>{bread.name}</h3>
@@ -26,6 +15,7 @@ function Show ({bread, index}) {
       have gluten.
     </p>
     <img src={bread.image} alt={bread.name} />
+    <p>{bread.getBakedBy()}</p>
     <li><a href="/breads">Go home</a></li>
     <body>
     <div className="wrapper">

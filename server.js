@@ -1,9 +1,7 @@
-const express = require('express')
 // DEPENDENCIES
+const express = require('express')
 const methodOverride = require('method-override')
 const mongoose = require('mongoose')
-
-
 require('dotenv').config()
 const PORT = process.env.PORT
 const app = express()
@@ -30,6 +28,8 @@ app.use(methodOverride('_method'))
 
 const breadsController = require('./controllers/breads_controller.js')
 app.use('/breads', breadsController)
+const bakersController = require('./controllers/bakers_controller.js')
+app.use('/bakers', bakersController)
 
 app.use(express.static('public'))
 
@@ -38,7 +38,7 @@ mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopolo
   )
 
 app.get("*", function(req,res){
-    res.send("404")
+    res.send("error404")
 })
 
 

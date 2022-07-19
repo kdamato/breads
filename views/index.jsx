@@ -11,16 +11,16 @@ function Index ({breads, title}) {
           <div className="backButton">
             <a href="/breads"><button>Go back to the index</button></a>
           </div>
-        {/* <p>I have {breads[0].name} bread!</p> */}
         <ul>
           {
             breads.map(function(bread, index){
               return (
-              <li key={index}>
-                <a href={`/breads/${bread.id}`}>
-                    {bread.name}
-                </a>
-              </li>
+                <ul key={index}>
+                  <a href={`/breads/${bread.id}`}>
+                      {bread.name}
+                  </a>
+                  <li>{bread.getBakedBy()}</li>
+                </ul>
               )
             }) 
           }
